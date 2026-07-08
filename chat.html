@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>D.B.P — Member Chat</title>
+<title>S.A.B.O — Member Chat</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap');
@@ -58,7 +58,7 @@ body{background:var(--navy);color:#fff;font-family:'Source Sans 3',sans-serif;he
 <body>
 
 <div class="topbar">
-  <div class="topbar-logo">D<span>.</span>B<span>.</span>P <span style="font-size:14px;color:#666;margin-left:8px;">MEMBER CHAT</span></div>
+  <div class="topbar-logo">S<span>.</span>A<span>.</span>B<span>.</span>O <span style="font-size:14px;color:#666;margin-left:8px;">MEMBER CHAT</span></div>
   <div class="topbar-right">SECURE CHANNEL</div>
 </div>
 
@@ -66,7 +66,7 @@ body{background:var(--navy);color:#fff;font-family:'Source Sans 3',sans-serif;he
 <div class="login-screen" id="loginScreen">
   <div class="login-box">
     <h2>ENTER THE CHANNEL</h2>
-    <p>D.B.P members only. Enter your name and code name to join.</p>
+    <p>S.A.B.O members only. Enter your name and code name to join.</p>
     <input class="input" id="realName" placeholder="Your Name" />
     <input class="input" id="codeName" placeholder="Code Name (optional)" />
     <input class="input" id="rankInput" placeholder="Your Rank (e.g. AGENT)" />
@@ -77,7 +77,7 @@ body{background:var(--navy);color:#fff;font-family:'Source Sans 3',sans-serif;he
 <!-- CHAT -->
 <div class="chat-screen" id="chatScreen">
   <div class="chat-header">
-    <div class="chat-header-left">⚡ D.B.P SECURE CHANNEL</div>
+    <div class="chat-header-left">⚡ S.A.B.O SECURE CHANNEL</div>
     <div class="chat-header-right"><span class="online-dot"></span><span id="onlineCount">1</span> online — <span id="myNameDisplay"></span></div>
   </div>
   <div class="messages" id="messages"></div>
@@ -110,11 +110,11 @@ function joinChat(){
 }
 
 function getMessages(){
-  try{ return JSON.parse(localStorage.getItem('dbp_chat') || '[]'); } catch(e){ return []; }
+  try{ return JSON.parse(localStorage.getItem('sabo_chat') || '[]'); } catch(e){ return []; }
 }
 
 function saveMessages(msgs){
-  localStorage.setItem('dbp_chat', JSON.stringify(msgs.slice(-100)));
+  localStorage.setItem('sabo_chat', JSON.stringify(msgs.slice(-100)));
 }
 
 function sendMsg(){
