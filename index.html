@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>D.B.P — Defend Bullied People</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--navy:#0a1628;--blue:#1a3a6b;--gold:#c9a84c;--red:#b22222;--white:#f5f5f0;--gray:#8a8a8a;}
+body{background:var(--navy);color:var(--white);font-family:'Source Sans 3',sans-serif;overflow-x:hidden;}
+
+.topbar{background:#000;padding:8px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold);}
+.topbar-left{font-size:12px;color:var(--gold);letter-spacing:2px;font-weight:700;}
+.topbar-right{font-size:12px;color:#666;letter-spacing:1px;}
+
+nav{background:var(--blue);padding:0 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:4px solid var(--gold);position:sticky;top:0;z-index:100;}
+.nav-logo{display:flex;align-items:center;gap:16px;padding:16px 0;}
+.seal{width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;border:3px solid #fff;flex-shrink:0;}
+.nav-title-main{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;letter-spacing:3px;color:#fff;}
+.nav-title-sub{font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:600;}
+.nav-links a{color:#ccc;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:2px;padding:20px 18px;border-left:1px solid rgba(255,255,255,0.1);transition:background .2s,color .2s;display:inline-block;}
+.nav-links a:hover{background:rgba(201,168,76,0.15);color:var(--gold);}
+
+.hero{background:linear-gradient(180deg,#0a1628 0%,#0d1f3d 50%,#0a1628 100%);padding:100px 20px;text-align:center;border-bottom:4px solid var(--gold);position:relative;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(26,58,107,0.4),transparent 70%);}
+.hero-seal{font-size:100px;margin-bottom:28px;display:block;filter:drop-shadow(0 0 20px rgba(201,168,76,0.5));animation:seal-pulse 3s ease-in-out infinite;}
+@keyframes seal-pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+.hero-tag{display:inline-block;background:var(--red);padding:6px 24px;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:4px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.2);}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(60px,14vw,140px);font-weight:700;letter-spacing:8px;line-height:0.9;margin-bottom:16px;color:#fff;text-shadow:0 0 60px rgba(201,168,76,0.3);}
+.hero h1 span{color:var(--gold);}
+.hero-full{font-family:'Oswald',sans-serif;font-size:clamp(16px,3vw,26px);letter-spacing:4px;color:var(--gold);margin-bottom:20px;}
+.hero-rule{width:200px;height:2px;background:var(--gold);margin:20px auto;}
+.hero p{font-size:18px;color:#aaa;max-width:600px;margin:0 auto 40px;line-height:1.8;}
+.btn-gold{background:var(--gold);border:none;padding:16px 48px;font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:3px;color:#000;cursor:pointer;font-weight:700;transition:all .2s;text-decoration:none;display:inline-block;margin:8px;}
+.btn-gold:hover{background:#e8c060;transform:translateY(-2px);}
+.btn-outline-gold{background:transparent;border:2px solid var(--gold);padding:16px 48px;font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:3px;color:var(--gold);cursor:pointer;font-weight:700;transition:all .2s;text-decoration:none;display:inline-block;margin:8px;}
+.btn-outline-gold:hover{background:var(--gold);color:#000;}
+
+.stats-bar{background:#000;border-bottom:3px solid var(--gold);padding:28px 40px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Oswald',sans-serif;font-size:40px;color:var(--gold);font-weight:700;}
+.stat-label{font-size:12px;color:#666;letter-spacing:3px;font-weight:700;margin-top:4px;}
+
+.mission{padding:100px 20px;max-width:1100px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:60px;}
+.section-tag{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:4px;color:var(--gold);margin-bottom:12px;}
+.section-title{font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:2px;margin-bottom:16px;}
+.section-rule{width:80px;height:3px;background:var(--gold);margin:0 auto;}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:60px;}
+.pillar{background:var(--blue);border:1px solid rgba(201,168,76,0.3);border-top:4px solid var(--gold);padding:36px 28px;transition:transform .3s;}
+.pillar:hover{transform:translateY(-6px);}
+.pillar-num{font-family:'Oswald',sans-serif;font-size:56px;color:rgba(201,168,76,0.2);font-weight:700;margin-bottom:8px;}
+.pillar h3{font-family:'Oswald',sans-serif;font-size:24px;color:var(--gold);letter-spacing:2px;margin-bottom:12px;}
+.pillar p{font-size:15px;color:#aaa;line-height:1.8;}
+
+.ranks-section{background:#060e1a;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);padding:100px 20px;}
+.ranks-inner{max-width:1100px;margin:0 auto;}
+.ranks-grid{display:flex;flex-direction:column;gap:16px;margin-top:60px;}
+.rank-row{display:flex;align-items:center;gap:24px;background:var(--blue);border:1px solid rgba(201,168,76,0.2);border-left:6px solid var(--gold);padding:24px 32px;transition:background .2s;}
+.rank-row:hover{background:rgba(26,58,107,0.8);}
+.rank-row.top{background:linear-gradient(90deg,rgba(201,168,76,0.15),rgba(26,58,107,0.5));}
+.rank-icon{font-size:40px;flex-shrink:0;width:60px;text-align:center;}
+.rank-info{flex:1;}
+.rank-title{font-family:'Oswald',sans-serif;font-size:22px;color:var(--gold);letter-spacing:2px;margin-bottom:4px;}
+.rank-desc{font-size:14px;color:#aaa;line-height:1.6;}
+.rank-badge{background:var(--gold);color:#000;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;padding:4px 14px;font-weight:700;flex-shrink:0;}
+.rank-badge.red{background:var(--red);color:#fff;}
+.rank-badge.gray{background:#333;color:#aaa;}
+
+.oath{background:linear-gradient(135deg,#060e1a,#0a1628);border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);padding:100px 20px;text-align:center;}
+.oath-inner{max-width:700px;margin:0 auto;}
+.oath h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,48px);letter-spacing:3px;margin-bottom:32px;}
+.oath-text{font-family:'Oswald',sans-serif;font-size:clamp(16px,2.5vw,22px);color:var(--gold);line-height:2.2;letter-spacing:1px;border-left:4px solid var(--gold);padding:24px 32px;text-align:left;margin-bottom:40px;}
+
+.founder-section{padding:100px 20px;max-width:900px;margin:0 auto;text-align:center;}
+.founder-seal{font-size:80px;margin-bottom:24px;display:block;}
+.founder-section h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,48px);letter-spacing:3px;color:var(--gold);margin-bottom:20px;}
+.founder-section p{font-size:17px;color:#aaa;line-height:1.9;margin-bottom:16px;}
+.founder-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px;}
+.f-tag{background:transparent;border:2px solid var(--gold);color:var(--gold);font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:3px;padding:6px 18px;}
+
+.enlist{padding:120px 20px;text-align:center;background:radial-gradient(ellipse at center,#0d1f3d,#0a1628);}
+.enlist h2{font-family:'Oswald',sans-serif;font-size:clamp(36px,7vw,80px);letter-spacing:4px;margin-bottom:16px;}
+.enlist h2 span{color:var(--gold);}
+.enlist p{font-size:18px;color:#888;margin-bottom:40px;}
+
+footer{background:#000;border-top:4px solid var(--gold);padding:40px 20px;text-align:center;}
+.footer-seal{font-size:40px;margin-bottom:12px;display:block;}
+footer p{color:#444;font-size:13px;letter-spacing:1px;line-height:2;}
+footer span{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">⚠ OFFICIAL ORGANIZATION — WORLDWIDE OPERATIONS</div>
+  <div class="topbar-right">EST. 2026 · LADERA RANCH, CA</div>
+</div>
+
+<nav>
+  <div class="nav-logo">
+    <div class="seal">🛡️</div>
+    <div>
+      <div class="nav-title-main">D.B.P</div>
+      <div class="nav-title-sub">DEFEND BULLIED PEOPLE</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#mission">MISSION</a>
+    <a href="#ranks">RANKS</a>
+    <a href="#oath">OATH</a>
+    <a href="#founder">FOUNDER</a>
+    <a href="#enlist">ENLIST</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="hero-seal">🛡️</span>
+  <div class="hero-tag">⚠ WORLDWIDE ORGANIZATION</div>
+  <h1>D<span>.</span>B<span>.</span>P</h1>
+  <div class="hero-full">DEFEND BULLIED PEOPLE</div>
+  <div class="hero-rule"></div>
+  <p>We are not just a club. We are not just a website. We are a worldwide movement of kids who stand up, speak up, and defend every person who has ever been hurt, bullied, or ignored.</p>
+  <div>
+    <a href="#enlist" class="btn-gold">ENLIST NOW</a>
+    <a href="#mission" class="btn-outline-gold">OUR MISSION</a>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">SUPREME CHIEF</div></div>
+  <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">TOLERANCE FOR BULLYING</div></div>
+  <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">PEOPLE TO PROTECT</div></div>
+  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">COMMITMENT</div></div>
+</div>
+
+<div class="mission" id="mission">
+  <div class="section-header">
+    <div class="section-tag">WHAT WE STAND FOR</div>
+    <div class="section-title">THE THREE PILLARS</div>
+    <div class="section-rule"></div>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <h3>DEFEND</h3>
+      <p>Every D.B.P member is trained to recognize bullying and step in. We place ourselves between the bully and the target. We do not look away. We do not walk past.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <h3>PROTECT</h3>
+      <p>We follow up. We check in. We make sure the person who was hurt feels safe — not just in that moment, but every day after. Protection doesn't end when the incident ends.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <h3>INSPIRE</h3>
+      <p>We do good deeds — not because someone told us to, but because we choose to. Random acts of kindness. Community service. Proving that kids can change the world.</p>
+    </div>
+  </div>
+</div>
+
+<div class="ranks-section" id="ranks">
+  <div class="ranks-inner">
+    <div class="section-header">
+      <div class="section-tag">ORGANIZATIONAL STRUCTURE</div>
+      <div class="section-title">RANKS & COMMAND</div>
+      <div class="section-rule"></div>
+    </div>
+    <div class="ranks-grid">
+      <div class="rank-row top">
+        <div class="rank-icon">👑</div>
+        <div class="rank-info">
+          <div class="rank-title">SUPREME CHIEF</div>
+          <div class="rank-desc">The founder and highest authority of D.B.P worldwide. Created the organization. Sets the mission. Commands all officers and chiefs. There is only one.</div>
+        </div>
+        <div class="rank-badge">OLIVER VO</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-icon">🎖️</div>
+        <div class="rank-info">
+          <div class="rank-title">GRAND CHIEF</div>
+          <div class="rank-desc">Appointed by the Supreme Chief. Oversees entire regions — countries, states, large areas. The highest rank any member can earn.</div>
+        </div>
+        <div class="rank-badge red">EARNED</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-icon">⭐</div>
+        <div class="rank-info">
+          <div class="rank-title">CHIEF</div>
+          <div class="rank-desc">Commands a city or large district. Leads all officers in their area. Runs operations, assigns missions, reports to Grand Chief.</div>
+        </div>
+        <div class="rank-badge red">EARNED</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-icon">🔵</div>
+        <div class="rank-info">
+          <div class="rank-title">SENIOR OFFICER</div>
+          <div class="rank-desc">Leads a school chapter or neighborhood unit. Trains new recruits. Organizes local missions and good deed campaigns.</div>
+        </div>
+        <div class="rank-badge red">EARNED</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-icon">🟢</div>
+        <div class="rank-info">
+          <div class="rank-title">OFFICER</div>
+          <div class="rank-desc">Active field member. Carries out missions. Reports incidents. Leads by example every single day at school and in the community.</div>
+        </div>
+        <div class="rank-badge red">EARNED</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-icon">🟡</div>
+        <div class="rank-info">
+          <div class="rank-title">AGENT</div>
+          <div class="rank-desc">Completed basic training. Actively defending and doing good deeds. Working toward Officer rank through completed missions.</div>
+        </div>
+        <div class="rank-badge gray">ENTRY</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-icon">⚪</div>
+        <div class="rank-info">
+          <div class="rank-title">RECRUIT</div>
+          <div class="rank-desc">Just enlisted. Learning the mission, the oath, and the code. Every D.B.P member starts here. Your journey begins the moment you sign up.</div>
+        </div>
+        <div class="rank-badge gray">START HERE</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="oath" id="oath">
+  <div class="oath-inner">
+    <div class="section-tag">REQUIRED OF ALL MEMBERS</div>
+    <h2>THE D.B.P OATH</h2>
+    <div class="oath-text">
+      "I, as a member of D.B.P, swear to defend every person who is bullied or hurt.<br><br>
+      I will not look away. I will not stay silent. I will stand up — even when it is hard.<br><br>
+      I will do good deeds not because I am told to, but because I choose to.<br><br>
+      I represent D.B.P everywhere I go. I am a defender of people.<br><br>
+      This is my oath."
+    </div>
+    <a href="#enlist" class="btn-gold">TAKE THE OATH →</a>
+  </div>
+</div>
+
+<div class="founder-section" id="founder">
+  <span class="founder-seal">🚲</span>
+  <h2>SUPREME CHIEF — OLIVER VO</h2>
+  <p>D.B.P was founded by Oliver Vo, age 10, from Ladera Ranch, California. Oliver has Tourette syndrome and knows firsthand what it feels like to be different, stared at, and misunderstood.</p>
+  <p>He founded BrightWing to send joy to kids with disabilities. He founded B.O.L.D to fight bullying undercover at school. Now he's going bigger — a worldwide physical organization to defend every bullied person on earth.</p>
+  <p>D.B.P is his biggest mission yet.</p>
+  <div class="founder-tags">
+    <span class="f-tag">AGE 10</span>
+    <span class="f-tag">LADERA RANCH, CA</span>
+    <span class="f-tag">SUPREME CHIEF</span>
+    <span class="f-tag">FOUNDER</span>
+    <span class="f-tag">12 COMPANIES</span>
+  </div>
+</div>
+
+<div class="enlist" id="enlist">
+  <div class="section-tag">JOIN THE MOVEMENT</div>
+  <h2>READY TO <span>DEFEND?</span></h2>
+  <p>The world needs defenders. Are you one of them?</p>
+  <a href="enlist.html" class="btn-gold">ENLIST IN D.B.P →</a>
+</div>
+
+<footer>
+  <span class="footer-seal">🛡️</span>
+  <p>© 2026 <span>D.B.P — DEFEND BULLIED PEOPLE</span></p>
+  <p>Founded by Oliver Vo · Age 10 · Ladera Ranch, CA · Supreme Chief</p>
+  <p style="margin-top:12px;font-size:11px;">A worldwide organization. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
