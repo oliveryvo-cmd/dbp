@@ -2,26 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Welcome to S.A.B.O</title>
+<title>Welcome to S.A.B.O — You're In!</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;700;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#07090f;color:#fff;font-family:'Nunito',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;}
-.icon{font-size:100px;margin-bottom:24px;filter:drop-shadow(0 0 30px rgba(241,196,15,0.8));animation:pulse 2s ease-in-out infinite;}
-@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
-h1{font-family:'Fredoka One',cursive;font-size:clamp(40px,8vw,80px);color:#f1c40f;margin-bottom:16px;letter-spacing:4px;}
-p{font-size:20px;color:#888;max-width:500px;line-height:1.9;margin-bottom:12px;}
-.tag{display:inline-block;background:#f1c40f;color:#000;border-radius:50px;padding:8px 28px;font-family:'Fredoka One',cursive;font-size:20px;margin-top:24px;letter-spacing:2px;}
-a{display:inline-block;margin-top:32px;color:#f1c40f;font-weight:900;font-size:16px;text-decoration:none;border-bottom:2px solid #f1c40f;padding-bottom:2px;}
+body{background:#0a1628;color:#fff;font-family:'Source Sans 3',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;}
+
+.welcome-icon{font-size:80px;margin-bottom:20px;filter:drop-shadow(0 0 30px rgba(201,168,76,0.8));animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+.welcome-tag{background:#b22222;padding:6px 24px;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:4px;margin-bottom:20px;display:inline-block;}
+h1{font-family:'Oswald',sans-serif;font-size:clamp(36px,7vw,72px);letter-spacing:4px;color:#fff;margin-bottom:12px;}
+.sub{font-size:18px;color:#888;margin-bottom:40px;max-width:500px;}
+
+/* RANK CARD */
+.card-wrap{margin:0 auto 40px;max-width:340px;width:100%;}
+.rank-card{background:#0a1628;border:3px solid #c9a84c;border-radius:8px;padding:32px 28px;box-shadow:0 0 60px rgba(201,168,76,0.3);position:relative;}
+.rank-card::before{content:'';position:absolute;inset:6px;border:1px solid rgba(201,168,76,0.2);border-radius:4px;pointer-events:none;}
+.card-org{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:4px;color:#c9a84c;margin-bottom:12px;}
+.card-stars{font-size:28px;color:#c9a84c;margin-bottom:12px;letter-spacing:4px;}
+.card-rank{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:#fff;letter-spacing:3px;margin-bottom:4px;}
+.card-sub{font-size:13px;color:#c9a84c;letter-spacing:2px;margin-bottom:20px;}
+.card-desc{font-size:14px;color:#aaa;line-height:1.7;margin-bottom:24px;font-style:italic;}
+.card-line{border-top:1px solid #333;padding-top:16px;display:flex;flex-direction:column;gap:8px;}
+.card-field{font-size:13px;color:#888;text-align:left;}
+.card-field span{color:#fff;font-weight:700;}
+
+.print-btn{background:#c9a84c;border:none;padding:14px 40px;font-family:'Oswald',sans-serif;font-size:18px;letter-spacing:3px;color:#000;cursor:pointer;font-weight:700;margin-bottom:12px;display:block;width:100%;max-width:340px;}
+.print-btn:hover{background:#e8c060;}
+.back{color:#c9a84c;font-weight:700;font-size:15px;text-decoration:none;letter-spacing:1px;border-bottom:1px solid #c9a84c;padding-bottom:2px;}
+
+@media print {
+  body{background:#fff;}
+  .welcome-icon,.welcome-tag,h1,.sub,.print-btn,.back{display:none;}
+  .rank-card{border-color:#000;box-shadow:none;background:#fff;color:#000;}
+  .card-org,.card-stars,.card-rank,.card-sub{color:#000;}
+  .card-desc,.card-field{color:#333;}
+}
 </style>
 </head>
 <body>
-  <div class="icon">🛡️</div>
-  <h1>WELCOME, RECRUIT</h1>
-  <p>Your enlistment has been received. The Supreme Chief will review your application.</p>
-  <p>Your mission starts now. Go do good.</p>
-  <div class="tag">YOU ARE NOW S.A.B.O</div>
-  <a href="index.html">← Back to S.A.B.O HQ</a>
+
+<div class="welcome-icon">🛡️</div>
+<div class="welcome-tag">⚠ ENLISTMENT CONFIRMED</div>
+<h1>YOU'RE IN, RECRUIT.</h1>
+<p class="sub">Your application has been received. Screenshot or print your official S.A.B.O Recruit card below. Your mission starts NOW.</p>
+
+<div class="card-wrap">
+  <div class="rank-card">
+    <div class="card-org">S.A.B.O — SECRET ANTI-BULLYING ORGANIZATION</div>
+    <div class="card-stars">●</div>
+    <div class="card-rank">RECRUIT</div>
+    <div class="card-sub">RANK 1 — START HERE</div>
+    <div class="card-desc">Just enlisted. Learning the mission, the oath, and the code. Every S.A.B.O member starts here. Your journey begins the moment you sign up.</div>
+    <div class="card-line">
+      <div class="card-field">NAME: <span id="memberName">New Member</span></div>
+      <div class="card-field">DATE ENLISTED: <span id="enlistDate"></span></div>
+      <div class="card-field">AUTHORIZED BY: <span>Oliver Vo, Supreme General</span></div>
+    </div>
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ PRINT YOUR CARD</button>
+<a href="index.html" class="back">← Back to S.A.B.O HQ</a>
+
+<script>
+// Set today's date
+document.getElementById('enlistDate').textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+</script>
 </body>
 </html>
